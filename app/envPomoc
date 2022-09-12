@@ -1,0 +1,6 @@
+
+
+aktywacja venv:
+venv\Scripts\activate
+
+aktrywacja flask  app  FLASK_APP=microblog.py
