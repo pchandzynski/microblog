@@ -68,3 +68,10 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed
 [parameters: ('patryk', '', 3)]
 (Background on this error at: https://sqlalche.me/e/14/gkpj)
 2022-09-12 18:05:32,384 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
+2022-09-13 11:57:36,611 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
+2022-09-13 11:57:51,468 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
+2022-09-13 13:06:05,230 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
+2022-09-13 13:20:00,520 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
+2022-09-13 13:20:44,213 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
+2022-09-13 13:22:06,248 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
+2022-09-13 13:24:42,888 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]

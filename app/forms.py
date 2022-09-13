@@ -43,3 +43,7 @@ def validate_username(self, username):
             if user is not None:
                 raise ValidationError('Please use a different username.')
 #super co  to?
+
+
+class EmptyForm(FlaskForm):
+    submit = SubmitField('Submit')
