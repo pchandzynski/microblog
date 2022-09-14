@@ -1,14 +1,4 @@
-2022-09-12 17:45:37,825 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
-2022-09-12 17:45:47,379 ERROR: Exception on /edit_profile [POST] [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\flask\app.py:1741]
-Traceback (most recent call last):
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
+2022-09-14 19:02:21,409 ERROR: Exception on / [GET] [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\flask\app.py:1741]
 Traceback (most recent call last):
   File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\flask\app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
@@ -20,58 +10,24 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\routes.py", line 92, in edit_profile
-    db.session.commit()
-  File "<string>", line 2, in commit
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1451, in commit
-    self._transaction.commit(_to_root=self.future)
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
-    self._prepare_impl()
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
-    self.session.flush()
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3386, in flush
-    self._flush(objects)
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3525, in _flush
-    with util.safe_reraise():
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
-    compat.raise_(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
-    raise exception
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3486, in _flush
-    flush_context.execute()
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
-    rec.execute(self)
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 237, in save_obj
-    _emit_update_statements(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1001, in _emit_update_statements
-    c = connection._execute_20(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 333, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
-    raise exception
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('patryk', '', 3)]
-(Background on this error at: https://sqlalche.me/e/14/gkpj)
-2022-09-12 18:05:32,384 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
-2022-09-13 11:57:36,611 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
-2022-09-13 11:57:51,468 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
-2022-09-13 13:06:05,230 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
-2022-09-13 13:20:00,520 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
-2022-09-13 13:20:44,213 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
-2022-09-13 13:22:06,248 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
-2022-09-13 13:24:42,888 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
+  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\routes.py", line 39, in index
+    return render_template("index.html", title="Home", posts=posts, form=form)
+  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\flask\templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\templates\index.html", line 20, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2022-09-14 19:03:57,519 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]
+2022-09-14 19:11:18,707 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:43]

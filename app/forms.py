@@ -47,3 +47,13 @@ def validate_username(self, username):
 
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
+
+
+class PostForm(FlaskForm):
+    post = TextAreaField('Whats on your mind?', validators=[DataRequired(), Length(min=1, max=140)])
+    submit = SubmitField('Submit')
+
+
+    #czy jakby nie było data req to samo lenght nie wystarczy?
+    #czy by po prostu spacje sam pozwalało na przykład wysłać
+    #i dlatego musi być datareq
