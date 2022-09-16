@@ -57,3 +57,13 @@ class PostForm(FlaskForm):
     #czy jakby nie było data req to samo lenght nie wystarczy?
     #czy by po prostu spacje sam pozwalało na przykład wysłać
     #i dlatego musi być datareq
+
+class ResetPasswordRequestForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Request Password Reset')
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField(
+        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Request Password Reset')
