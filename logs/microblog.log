@@ -67,3 +67,5 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed
 [parameters: ('email', '1233342', 3)]
 (Background on this error at: https://sqlalche.me/e/14/gkpj)
 2022-09-16 18:54:32,734 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:49]
+2022-09-20 19:55:31,584 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:51]
+2022-09-20 19:58:09,096 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:51]
