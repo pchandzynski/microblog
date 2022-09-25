@@ -1,19 +1,19 @@
 from datetime import datetime
 from hashlib import md5
-from app import db, login
+from time import time
+from flask import current_app
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from time import time
 import jwt
-from app import app
+from app import db, login
 
 
-followers = db.Table('followers',
+followers = db.Table(
+    'followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
 
-#nie ma  klasy bo używam  tylko kluczy z klas  które już istnieją
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -29,8 +29,6 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
-    #ogarnąć  to  db relationship i lazy
-
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
@@ -39,7 +37,7 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-    
+
     def avatar(self, size):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
@@ -64,54 +62,33 @@ class User(UserMixin, db.Model):
         own = Post.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Post.timestamp.desc())
 
-#zrozumieć to query
-
-#query join tworzy tymczasową tablicę z tablicy followers i łączy
-#wpisy z tablic followrs i post według warunku, który dał jako
-#argument czyli fallowed id musi == user id z tablicy posts
-#czyli bierze każdy wpis z post table i przypisuje mu z tablicy
-#followerów wszystko co pasuje
-#a jak nic nie  pasuje to rekord nie powstaje czyli
-#jak  dany post nie ma followerów  to się nie wyświetli
-#user id i followed id będą takie same bo taki był warunek
-
-#filter jako że to query jest metodą klasy User to
-#self.id to user.id(?). Filter wybiera itemy z tablicy joined
-#które mają danego użytkownika jako followera
-#no a na końcu sortowanie od najnowszych(desc) czyli kolejność
-#malejąca
-
-#union = followed i own są wyświetlane razem
-    
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
             {'reset_password': self.id, 'exp': time() + expires_in},
-            app.config['SECRET_KEY'], algorithm='HS256')
+            current_app.config['SECRET_KEY'], algorithm='HS256')
 
     @staticmethod
     def verify_reset_password_token(token):
         try:
-            id = jwt.decode(token, app.config['SECRET_KEY'],
+            id = jwt.decode(token, current_app.config['SECRET_KEY'],
                             algorithms=['HS256'])['reset_password']
         except:
             return
         return User.query.get(id)
-
-#nie kumam o co chodzi ze staticmethod
 
 
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
 
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    language =  db.Column(db.String(5))
+    language = db.Column(db.String(5))
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
-
 
