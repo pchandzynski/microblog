@@ -2,7 +2,7 @@
 
 #validacja edit profile do ogarnięcia
 
-#zapytać o agile,prace  w grupach itp
-#zapytać o django
 
 #sprawdzić jeszcze raz różnice pomiędzy post a get
+
+#search lepiej ogarnąć
