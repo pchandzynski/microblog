@@ -59,3 +59,12 @@ Traceback (most recent call last):
     Notification.timestamp > since).order_by(Notification.timestamp.asc())
 NameError: name 'Notification' is not defined
 2022-10-01 13:02:58,868 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:74]
+2022-10-03 15:50:22,043 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:74]
+2022-10-03 15:55:31,680 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:74]
+2022-10-03 17:04:35,482 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:74]
+2022-10-03 17:04:41,434 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:74]
+2022-10-03 17:04:54,701 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:74]
+2022-10-03 17:12:20,747 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:80]
+2022-10-03 17:12:32,906 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:80]
+2022-10-03 17:12:59,493 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:80]
+2022-10-03 17:25:34,141 INFO: Microblog startup [in C:\Users\pchan\OneDrive\Desktop\nshi\Python\Flask\microblog\app\__init__.py:80]
